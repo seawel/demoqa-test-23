@@ -10,21 +10,24 @@ public class SimpleJUnitTest {
 
     @BeforeAll
     static void beforeAll() {
-        System.out.println("###  beforeAll()");
+        System.out.println("\n###  beforeAll()\n");
     }
 
     @BeforeEach
     void beforEach() {
-        System.out.println("###           beforEach()");
+        System.out.println("###            beforEach()");
         result = getResult();
     }
 
     @AfterEach
     void afterEach() {
-        System.out.println("###              afterEach()\n");
+        System.out.println("###             afterEach()\n");
         result = 0;
     }
-
+    @AfterAll
+    static void afterAll() {
+     System.out.println("\n###  afterAll()\n");
+    }
     @Test
     void firstTest() {
         int result = getResult();
