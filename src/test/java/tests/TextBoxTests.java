@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Configuration.browserSize;
+import static com.codeborne.selenide.Configuration.config;
 import static com.codeborne.selenide.Selenide.*;
 
 public class TextBoxTests {
@@ -13,6 +14,10 @@ public class TextBoxTests {
     static void beforeAll() {
             System.out.println("\n###  beforeAll()\n");
             browserSize = "1920x1080";
+           // Configuration.baseUrl = "https://demoqa.com";
+        Configuration.pageLoadStrategy = "eager";
+        Configuration.holdBrowserOpen = true;
+        Configuration.timeout = 5000;
 
     }
 
@@ -26,6 +31,13 @@ public class TextBoxTests {
         ///$("permanentAddress").setValue("Another street 1");
         $("#submit").click();
 
-        $("[id=search]").shouldHave(text("https://selenide.org"));
+        $("#output #name").shouldHave(text("Alex"));
+        $("#output #email").shouldHave(text("alex@egorov.com"));
+        $("#output #currentAddress").shouldHave(text("Some street 1"));
+        $("#output #permanentAddress").shouldHave(text("Alex"));
+
+
+
+
     }
 }
