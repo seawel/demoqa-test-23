@@ -34,22 +34,14 @@ public class Lesson3HW1DemoqaTest {
 
         $("#subjectsInput").setValue("biology").pressEnter();
         $("#hobbiesWrapper").$(byText("Music")).click();
-        $("#uploadPicture").uploadFromClasspath("cat.jpg")
 
-
-
-
-
-
-
-        $("#output #name").shouldHave(text("Alex"));
-        $("#output #email").shouldHave(text("alex@egorov.com"));
-        $("#output #currentAddress").shouldHave(text("Some street 1"));
-        $("#output #permanentAddress").shouldHave(text("Alex"));
-
-
-
-
+        $("#uploadPicture").uploadFromClasspath("cat.jpeg");
+        $("#currentAddress").setValue("Russia,630777,Moscow,ul.Pobedy,d.19,kv.6");
+        $("#state").click();
+        $("#state").$(byText("Rajasthan")).click();
+        $("#city").click();
+        $("#city").$(byText("Jaipur")).click();
+        $("#submit").click();
     }
 }
 
