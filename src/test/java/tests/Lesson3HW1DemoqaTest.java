@@ -4,14 +4,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Configuration.browserSize;
-import static com.codeborne.selenide.Configuration.config;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.files.DownloadActions.click;
 
 
-public class Lesson3HW1Demoqa {
+public class Lesson3HW1DemoqaTest {
 
     @BeforeAll
     static void beforeAll() {
@@ -37,7 +34,7 @@ public class Lesson3HW1Demoqa {
 
         $("#subjectsInput").setValue("biology").pressEnter();
         $("#hobbiesWrapper").$(byText("Music")).click();
-        $("#uploadPicture").uploadFromClasspath("now.jpg")
+        $("#uploadPicture").uploadFromClasspath("cat.jpg")
 
 
 
