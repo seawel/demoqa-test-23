@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Configuration.browserSize;
 import static com.codeborne.selenide.Configuration.config;
 import static com.codeborne.selenide.Selenide.*;
 
-public class TextBoxTests {
+public class TextBoxTests extends TestBase{
 
     static void beforeAll() {
             System.out.println("\n###  beforeAll()\n");
