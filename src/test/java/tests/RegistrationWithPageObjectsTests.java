@@ -1,60 +1,42 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import pages.RegistrationPage;
 
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
+public class RegistrationWithPageObjectsTests extends TestBase {
 
-public class RegistrationWithPageObjectsTests {
-
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.pageLoadStrategy = "eager";
-
-    }
+    RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
-    void fillPracticeFormTest() {
-        open("/automation-practice-form");
-        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
+    void successfulRegistrationTest() {
+        registrationPage.openPage()
+                .setFirstName("Alex")
+                .setLastName("Egorov")
+                .setEmail("alex@egorov.com")
+                .setGender("Other")
+                .setUserNumber("1234567890")
+                .setDateOfBirth("30", "July", "2008");
 
-
-        $("#firstName").setValue("Alex");
-        $("#lastName").setValue("Pavlov");
-        $("#userEmail").setValue("alexpavlov@gmail.com");
-        $("#genterWrapper").$(byText("Male")).click();
-        $("#userNumber").setValue("7915600123");
-
-        $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").selectOption("March");
-        $(".react-datepicker__year-select").selectOption("1979");
-        $(".react-datepicker__day--022:not(.react-datepicker__day--outside-month)").click();
-
-        $("#subjectsInput").setValue("biology").pressEnter();
-        $("#hobbiesWrapper").$(byText("Music")).click();
-
-        $("#uploadPicture").uploadFromClasspath("cat.jpeg");
-        $("#currentAddress").setValue("Russia,630777,Moscow,ul.Pobedy,d.19,kv.6");
+        $("#subjectsInput").setValue("Math").pressEnter();
+        $("#hobbiesWrapper").$(byText("Sports")).click();
+        $("#uploadPicture").uploadFromClasspath("img/1.png");
+        $("#currentAddress").setValue("Some address 1");
         $("#state").click();
-        $("#state").$(byText("Rajasthan")).click();
+        $("#stateCity-wrapper").$(byText("NCR")).click();
         $("#city").click();
-        $("#city").$(byText("Jaipur")).click();
+        $("#stateCity-wrapper").$(byText("Delhi")).click();
         $("#submit").click();
 
         $(".modal-dialog").should(appear);
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").shouldHave(text("Alex"), text("Pavlov"),
-                text("alexpavlov@gmail.com"), text("7915600123"));
-
-
+        $(".table-responsive").shouldHave(text("Alex"), text("Egorov"),
+                text("alex@egorov.com"), text("1234567890"));
+        registrationPage.checkResult("Student Name", "Alex Egorov")
+                .checkResult("Student Email", "alex@egorov.com");
     }
 }

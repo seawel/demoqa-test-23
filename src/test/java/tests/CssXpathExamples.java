@@ -4,12 +4,6 @@ import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
-public class CssXpathExamples {
-    package tests;
-
-import static com.codeborne.selenide.Selectors.*;
-import static $;
-import static $x;
 
     public class CssXpathExamples {
 
