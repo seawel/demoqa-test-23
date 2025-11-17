@@ -22,9 +22,9 @@ public class RegistrationWithPageObjectsTests extends TestBase {
         registrationPage.setUserNumber("1234567890");
         registrationPage.setDateOfBirth("30", "July", "2008");
         registrationPage.setSubjectsInput("Math");
-        $("#subjectsInput").setValue("Math").pressEnter();
-        $("#hobbiesWrapper").$(byText("Sports")).click();
-        $("#uploadPicture").uploadFromClasspath("img/1.png");
+        registrationPage.setHobbiesWrapperInput("Sports");
+        registrationPage.setUploadPictureInput("cat.jpeg");
+       // $("#uploadPicture").uploadFromClasspath("cat.jpeg");
         $("#currentAddress").setValue("Some address 1");
         $("#state").click();
         $("#stateCity-wrapper").$(byText("NCR")).click();

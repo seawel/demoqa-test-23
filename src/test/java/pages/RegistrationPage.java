@@ -15,7 +15,11 @@ public class RegistrationPage {
             genderWrapper = $("#genterWrapper"),
             userNumberInput = $("#userNumber"),
             SubjectsInput =  $("#subjectsInput"),
-            calendarInput = $("#dateOfBirthInput");
+            hobbiesWrapperInput = $(byText("Sports")),
+            calendarInput = $("#dateOfBirthInput"),
+            uploadPictureInput =  $("#uploadPicture");
+
+
 
     CalendarComponent calendarComponent = new CalendarComponent();
 
@@ -62,9 +66,10 @@ public class RegistrationPage {
         SubjectsInput.setValue(value).pressEnter();
         return this;
     }
-
-
-
+    public RegistrationPage setHobbiesWrapperInput(String value) {
+        hobbiesWrapperInput.setValue(value).click();
+        return this;
+    }
 
 
     public RegistrationPage setDateOfBirth(String day, String month, String year) {
@@ -73,6 +78,12 @@ public class RegistrationPage {
 
         return this;
     }
+
+    public RegistrationPage setUploadPictureInput(String value) {
+        uploadPictureInput.uploadFromClasspath( value);
+        return this;
+    }
+
 
     public RegistrationPage checkResult(String key, String value) {
         $(".table-responsive").$(byText(key)).parent()
