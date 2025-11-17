@@ -14,21 +14,21 @@ public class RegistrationWithPageObjectsTests extends TestBase {
 
     @Test
     void successfulRegistrationTest() {
-        registrationPage.openPage()
-                .setFirstName("Alex")
-                .setLastName("Egorov")
-                .setEmail("alex@egorov.com")
-                .setGender("Other")
-                .setUserNumber("1234567890")
-                .setDateOfBirth("30", "July", "2008");
-
+        registrationPage.openPage();
+        registrationPage.setFirstName("Alex");
+        registrationPage.setLastName("Egorov");
+        registrationPage.setEmail("alex@egorov.com");
+        registrationPage.setGender("Other");
+        registrationPage.setUserNumber("1234567890");
+        registrationPage.setDateOfBirth("30", "July", "2008");
+        registrationPage.setSubjectsInput("Math");
         $("#subjectsInput").setValue("Math").pressEnter();
         $("#hobbiesWrapper").$(byText("Sports")).click();
         $("#uploadPicture").uploadFromClasspath("img/1.png");
         $("#currentAddress").setValue("Some address 1");
         $("#state").click();
         $("#stateCity-wrapper").$(byText("NCR")).click();
-        $("#city").click();
+        $("#city").click(); 
         $("#stateCity-wrapper").$(byText("Delhi")).click();
         $("#submit").click();
 

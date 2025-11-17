@@ -12,8 +12,6 @@ public class RegistrationTests extends TestBase {
     @Test
     void successfulRegistrationTest() {
 
-
-
         $("#firstName").setValue("Alex");
         $("#lastName").setValue("Egorov");
         $("#userEmail").setValue("alex@egorov.com");

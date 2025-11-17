@@ -8,11 +8,10 @@ public class TestBase {
     static void beforeAll() {
 
         com.codeborne.selenide.Configuration.baseUrl = "https://demoqa.com";
-        com.codeborne.selenide.Configuration.browserSize = "1920x1080";
+        com.codeborne.selenide.Configuration.browserSize = "2240x1400";
         Configuration.timeout = 10000;
-        //Configuration.pageLoadStrategy = "eager";
+        Configuration.pageLoadStrategy = "eager";
 
 
     }
 }
-ипсик
