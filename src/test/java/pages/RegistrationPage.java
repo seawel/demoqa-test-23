@@ -14,8 +14,8 @@ public class RegistrationPage {
             userEmailInput = $("#userEmail"),
             genderWrapper = $("#genterWrapper"),
             userNumberInput = $("#userNumber"),
-            SubjectsInput =  $("#subjectsInput"),
-            hobbiesWrapperInput = $(byText("Sports")),
+            subjectsInput =  $("#subjectsInput"),
+            hobbiesWrapperInput = $("#hobbiesWrapper"),
             calendarInput = $("#dateOfBirthInput"),
             uploadPictureInput =  $("#uploadPicture");
 
@@ -63,11 +63,11 @@ public class RegistrationPage {
     }
 
     public RegistrationPage setSubjectsInput(String value) {
-        SubjectsInput.setValue(value).pressEnter();
+        subjectsInput.setValue(value).pressEnter();
         return this;
     }
     public RegistrationPage setHobbiesWrapperInput(String value) {
-        hobbiesWrapperInput.setValue(value).click();
+        hobbiesWrapperInput.$(byText(value)).click();
         return this;
     }
 
