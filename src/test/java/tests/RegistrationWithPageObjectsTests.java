@@ -24,7 +24,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
         registrationPage.setSubjectsInput("Math");
         registrationPage.setHobbiesWrapperInput("Sports");
         registrationPage.setUploadPictureInput("cat.jpeg");
-       // $("#uploadPicture").uploadFromClasspath("cat.jpeg");
+        registrationPage.setAddressInput("Some address 1");
         $("#currentAddress").setValue("Some address 1");
         $("#state").click();
         $("#stateCity-wrapper").$(byText("NCR")).click();

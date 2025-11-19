@@ -17,7 +17,9 @@ public class RegistrationPage {
             subjectsInput =  $("#subjectsInput"),
             hobbiesWrapperInput = $("#hobbiesWrapper"),
             calendarInput = $("#dateOfBirthInput"),
-            uploadPictureInput =  $("#uploadPicture");
+            uploadPictureInput =  $("#uploadPicture"),
+            addressInput = $("#currentAddress");
+
 
 
 
@@ -90,7 +92,14 @@ public class RegistrationPage {
                 .shouldHave(text(value));
 
         return this;
+
     }
+    public RegistrationPage setAddressInput(String value) {
+        addressInput.setValue(value);
+        return this;
+    }
+
 }
+
 
 
