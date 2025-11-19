@@ -26,7 +26,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
         registrationPage.setUploadPictureInput("cat.jpeg");
         registrationPage.setAddressInput("Some address 1");
         registrationPage.setStateInput("NCR");
-        registrationPage.setSubmitInput("#submit");
+        registrationPage.setSubmitBtn("#submit");
   //      $("#submit").click();
 
   //      $(".modal-dialog").should(appear);

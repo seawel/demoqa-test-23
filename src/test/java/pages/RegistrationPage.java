@@ -21,7 +21,8 @@ public class RegistrationPage {
             addressInput = $("#currentAddress"),
             stateInput = $("#state"),
             stateCityWrapperInput = $("#stateCity-wrapper"),
-            submitInput = $("#submit");
+            submitBtn = $("#submit"),
+    modal-dialog;
 
 
     CalendarComponent calendarComponent = new CalendarComponent();
@@ -107,7 +108,7 @@ public class RegistrationPage {
         stateCityWrapperInput.$(byText(value)).click();
         return this;
     }
-    public RegistrationPage setSubmitInput(String value) {
+    public RegistrationPage setSubmitBtn(String value) {
         submitInput.click();
         return this;
     }
