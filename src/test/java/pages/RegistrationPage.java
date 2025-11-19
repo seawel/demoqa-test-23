@@ -109,7 +109,7 @@ public class RegistrationPage {
         return this;
     }
     public RegistrationPage setSubmitBtn(String value) {
-        submitInput.click();
+        submitBtn.click();
         return this;
     }
 }
