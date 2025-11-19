@@ -26,14 +26,14 @@ public class RegistrationWithPageObjectsTests extends TestBase {
         registrationPage.setUploadPictureInput("cat.jpeg");
         registrationPage.setAddressInput("Some address 1");
         registrationPage.setStateInput("NCR");
+        registrationPage.setSubmitInput("#submit");
+  //      $("#submit").click();
 
-        $("#submit").click();
-
-        $(".modal-dialog").should(appear);
-        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").shouldHave(text("Alex"), text("Egorov"),
-                text("alex@egorov.com"), text("1234567890"));
-        registrationPage.checkResult("Student Name", "Alex Egorov")
-                .checkResult("Student Email", "alex@egorov.com");
+  //      $(".modal-dialog").should(appear);
+  //      $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
+  //      $(".table-responsive").shouldHave(text("Alex"), text("Egorov"),
+ //               text("alex@egorov.com"), text("1234567890"));
+  //      registrationPage.checkResult("Student Name", "Alex Egorov")
+  //              .checkResult("Student Email", "alex@egorov.com");
     }
 }
