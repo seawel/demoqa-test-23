@@ -14,13 +14,14 @@ public class RegistrationPage {
             userEmailInput = $("#userEmail"),
             genderWrapper = $("#genterWrapper"),
             userNumberInput = $("#userNumber"),
-            subjectsInput =  $("#subjectsInput"),
+            subjectsInput = $("#subjectsInput"),
             hobbiesWrapperInput = $("#hobbiesWrapper"),
             calendarInput = $("#dateOfBirthInput"),
-            uploadPictureInput =  $("#uploadPicture"),
-            addressInput = $("#currentAddress");
-
-
+            uploadPictureInput = $("#uploadPicture"),
+            addressInput = $("#currentAddress"),
+            stateInput = $("#state"),
+            stateCityWrapperInput = $("#stateCity-wrapper"),
+            submitInput = $("#submit");
 
 
     CalendarComponent calendarComponent = new CalendarComponent();
@@ -68,6 +69,7 @@ public class RegistrationPage {
         subjectsInput.setValue(value).pressEnter();
         return this;
     }
+
     public RegistrationPage setHobbiesWrapperInput(String value) {
         hobbiesWrapperInput.$(byText(value)).click();
         return this;
@@ -82,7 +84,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage setUploadPictureInput(String value) {
-        uploadPictureInput.uploadFromClasspath( value);
+        uploadPictureInput.uploadFromClasspath(value);
         return this;
     }
 
@@ -94,11 +96,21 @@ public class RegistrationPage {
         return this;
 
     }
+
     public RegistrationPage setAddressInput(String value) {
         addressInput.setValue(value);
         return this;
     }
 
+    public RegistrationPage setStateInput(String value) {
+        stateInput.click();
+        stateCityWrapperInput.$(byText(value)).click();
+        return this;
+    }
+    public RegistrationPage setSubmitInput(String value) {
+        submitInput.click();
+        return this;
+    }
 }
 
 

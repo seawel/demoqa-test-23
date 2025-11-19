@@ -25,11 +25,8 @@ public class RegistrationWithPageObjectsTests extends TestBase {
         registrationPage.setHobbiesWrapperInput("Sports");
         registrationPage.setUploadPictureInput("cat.jpeg");
         registrationPage.setAddressInput("Some address 1");
-        $("#currentAddress").setValue("Some address 1");
-        $("#state").click();
-        $("#stateCity-wrapper").$(byText("NCR")).click();
-        $("#city").click(); 
-        $("#stateCity-wrapper").$(byText("Delhi")).click();
+        registrationPage.setStateInput("NCR");
+
         $("#submit").click();
 
         $(".modal-dialog").should(appear);
