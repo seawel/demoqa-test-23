@@ -15,7 +15,11 @@ public class RegistrationTests extends TestBase {
         $("#firstName").setValue("Alex");
         $("#lastName").setValue("Egorov");
         $("#userEmail").setValue("alex@egorov.com");
-        $("#genterWrapper").$(byText("Other")).click();
+
+ //       $("#gender-radio-3").parent().click();// good
+        $("#genterWrapper").$(byText("Other")).click(); //   best
+  //    $(byText("Other")).click(); // not very good if language wil be changed
+        $("[label for=gender-radio-1]").click();// good
         $("#userNumber").setValue("1234567890");
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("July");
