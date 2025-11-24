@@ -1,8 +1,11 @@
 package tests.demoqa.registration;
 
+import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 import tests.TestBase;
+
+import java.util.Locale;
 
 public class RegistrationWithPageObjectsTests extends TestBase {
 
@@ -13,16 +16,28 @@ public class RegistrationWithPageObjectsTests extends TestBase {
     void successfulAllFieldsRegistrationTest() {
 
         registrationPage.openRegistrationPage()
-                .setFirstName("Alex")
-                .setLastName("Pavlov")
-                .setEmail("alexpavlov@gmail.com")
+        Faker faker = new Faker(new Locale("en-GB"));
+
+
+        String firstName = faker.name().firstName();
+        String lastName = faker.name().lastName();
+        String userEmail = faker.internet().emailAddress();
+        String streetAddress = faker.address().streetAddress();
+        String phoneNumber = String.valueOf(faker.phoneNumber());
+        String birthDay = faker.date().toString();
+
+
+                .setFirstName(        String firstName = faker.name().firstName();
+)
+                .setLastName(lastName)
+                .setEmail(userEmail)
                 .setGender("Male")
-                .setPhoneNumber("7915600123")
-                .setBirthDay("30", "July", "2008")
+                .setPhoneNumber(phoneNumber)
+                .setBirthDay(birthDay)
                 .setSubject("biology")
                 .setHobby("sports")
                 .uploadPicture("img/","1.png")
-                .setAddress("Some address 1")
+                .setAddress(streetAddress)
                 .setStateAndCity("NCR", "Delhi")
                 .submitForm()
                 .checkResult();
