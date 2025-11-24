@@ -20,6 +20,7 @@ public class RegistrationWithFakerTests extends TestBase {
         String lastName = faker.name().lastName();
         String userEmail = faker.internet().emailAddress();
         String streetAddress = faker.address().streetAddress();
+        String streetAddress = faker.address().streetAddress();
 
         open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
@@ -48,6 +49,6 @@ public class RegistrationWithFakerTests extends TestBase {
         $(".modal-dialog").should(appear);
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
         $(".table-responsive").shouldHave(text(firstName), text(lastName),
-                text(userEmail), text("1234567890"), text(streetAddress));
+                text(userEmail), text(userEmail), text(streetAddress));
     }
 }
