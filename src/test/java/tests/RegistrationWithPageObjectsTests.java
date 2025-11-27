@@ -15,7 +15,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
     @Test
     void successfulAllFieldsRegistrationTest() {
 
-        registrationPage.openRegistrationPage()
+        registrationPage.openRegistrationPage();
         Faker faker = new Faker(new Locale("en-GB"));
 
 
@@ -23,12 +23,11 @@ public class RegistrationWithPageObjectsTests extends TestBase {
         String lastName = faker.name().lastName();
         String userEmail = faker.internet().emailAddress();
         String streetAddress = faker.address().streetAddress();
-        String phoneNumber = String.valueOf(faker.phoneNumber());
+        String phoneNumber = faker.phoneNumber().phoneNumber();
         String birthDay = faker.date().toString();
 
-
-                .setFirstName(        String firstName = faker.name().firstName();
-)
+        registrationPage
+               .setFirstName(firstName)
                 .setLastName(lastName)
                 .setEmail(userEmail)
                 .setGender("Male")
@@ -47,7 +46,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
     @Test
     void successfulRequiredFieldRegistrationTest() {
 
-        registrationPage.openRegistrationPage()
+         registrationPage.openRegistrationPage()
                 .setFirstName("Alex")
                 .setLastName("Pavlov")
                 .setGender("Male")

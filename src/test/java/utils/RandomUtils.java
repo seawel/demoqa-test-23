@@ -1,29 +1,24 @@
 package utils;
 
 import java.security.SecureRandom;
+import java.util.Locale;
 import java.util.concurrent.ThreadLocalRandom;
+import com.github.javafaker.Faker;
 
 public class RandomUtils {
+    private static final Faker faker = new Faker(new Locale("en"));
 
-    public static void main(String[] args) {
-        System.out.println(getRandomString(10));
-        System.out.println(getRandomEmail());
-        System.out.println(getRandomAddress());
-        System.out.println(getRandomInt(111, 99999999));
-        System.out.println(getRandomPhone());
-        System.out.println(getRandomGender());
+
+
+public String getRandomFirstName() {
+    return faker.name().firstName();
     }
+}
 
-    public static String getRandomString(int len) {
-//        String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-        String AB = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-        SecureRandom rnd = new SecureRandom();
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < len; i++)
-            sb.append(AB.charAt(rnd.nextInt(AB.length())));
+public String getRandomLastName() {
+    return faker.;
+}
 
-        return sb.toString();
-    }
 
     public static String getRandomEmail() {
         return getRandomString(10) + "@qa.guru";
@@ -33,8 +28,8 @@ public class RandomUtils {
         return getRandomString(10) + " " + getRandomString(10) + " " + getRandomString(10);
     }
 
-    public static int getRandomInt(int min, int max) {
-        return ThreadLocalRandom.current().nextInt(min, max + 1);
+    public static String getRandomInt(int min, int max) {
+        return String.valueOf(ThreadLocalRandom.current().nextInt(min, max + 1));
     }
 
     // +3 (263) 253 - 66 - 12
@@ -50,8 +45,43 @@ public class RandomUtils {
     }
 
     public static String getRandomItemFromArray(String[] array) {
-        int index = getRandomInt(0, array.length - 1);
+        int index = Integer.parseInt(getRandomInt(0, array.length - 1));
 
         return array[index];
     }
+
+    public static String getRandomBirthDay() {
+        return String.format(getRandomInt(1, 28));
+    }
+
+    public String getRandomBirthMonth() {
+
+        return faker.options().option("January", "February", "March",
+                "April", "May", "June",
+                "July", "August", "September",
+                "October", "November", "December");
+
+    public static String getRandomBirthYear () {
+        return String.valueOf(faker.number().numberBetween(1940, 2025)););
+
+    }
+
+
+    public static String getRandomSubject() {
+        String[] subjects = {"Maths", "Chemistry", "Computer Science",
+                "Commerce", "Economics"};
+
+        return getRandomItemFromArray(subjects);
+    }
+
+    public String getRandomCity(String stateName) {
+        return switch (stateName) {
+            case "NCR" -> faker.options().option("Delhi", "Gurgaon", "Noida");
+            case "Uttar Pradesh" -> faker.options().option("Agra", "Lucknow", "Merrut");
+            case "Haryana" -> faker.options().option("Karnal", "Panipat");
+            case "Rajasthan" -> faker.options().option("Jaipur", "Jaiselmer");
+            default -> throw new IllegalArgumentException("Некорректный штат");
+        };
+    }
 }
+
