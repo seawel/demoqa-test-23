@@ -74,6 +74,7 @@ public String getRandomLastName() {
         return getRandomItemFromArray(subjects);
     }
 
+
     public String getRandomCity(String stateName) {
         return switch (stateName) {
             case "NCR" -> faker.options().option("Delhi", "Gurgaon", "Noida");

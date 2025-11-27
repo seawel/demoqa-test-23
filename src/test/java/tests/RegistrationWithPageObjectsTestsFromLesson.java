@@ -7,7 +7,7 @@ import tests.TestBase;
 
 import java.util.Locale;
 
-public class RegistrationWithPageObjectsTests extends TestBase {
+public class RegistrationWithPageObjectsTestsFromLesson extends TestBase {
 
     protected RegistrationPage registrationPage = new RegistrationPage();
   //  protected TestData testData = new TestData();
